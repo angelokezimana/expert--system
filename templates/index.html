@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', path='/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', path='/main.css') }}">
+	<title>Expert system for diagnosing diabetes in children</title>
+</head>
+
+<body class="m-3 bg-blue">
+	<div class="container border rounded p-3 bg-white">
+		<h1 class="text-center">Expert system for diagnosing diabetes in children</h1>
+		<form method="POST" class="row g-3">
+			<fieldset class="col-auto">
+				<legend>Age:</legend>
+				<select id="age" name="age" class="form-select form-select-sm">
+					<option value="">Select the age of the child</option>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Blood sugar:</legend>
+				<input type="number" id="glycemie" name="glycemie" class="form-control form-control-sm">
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Shakiness:</legend>
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="shakinessTrue" name="shakiness" value="1">
+					<label class="form-check-label" for="shakinessTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="ShakinessFalse" name="shakiness" value="0" checked>
+					<label class="form-check-label" for="ShakinessFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Hunger:</legend>
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="hungerTrue" name="hunger" value="1">
+					<label class="form-check-label" for="hungerTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="hungerFalse" name="hunger" value="0" checked>
+					<label class="form-check-label" for="hungerFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Sweating:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="sweatingTrue" name="sweating" value="1">
+					<label class="form-check-label" for="sweatingTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="sweatingFalse" name="sweating" value="0" checked>
+					<label class="form-check-label" for="sweatingFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Headach:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="headachTrue" name="headach" value="1">
+					<label class="form-check-label" for="headachTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="headachFalse" name="headach" value="0" checked>
+					<label class="form-check-label" for="headachFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Diabetic parents:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="diabeticParentsTrue" name="diabetic_parents"
+						value="1" checked>
+					<label class="form-check-label" for="diabeticParentsTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="diabeticParentsFalse" name="diabetic_parents"
+						value="0">
+					<label class="form-check-label" for="diabeticParentsFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Pale:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="paleTrue" name="pale" value="1">
+					<label class="form-check-label" for="paleTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="paleFalse" name="pale" value="0" checked>
+					<label class="form-check-label" for="paleFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Urination:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="urinationTrue" name="urination" value="1" checked>
+					<label class="form-check-label" for="urinationTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="urinationFalse" name="urination" value="0">
+					<label class="form-check-label" for="urinationFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Thirst:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="thirstTrue" name="thirst" value="1" checked>
+					<label class="form-check-label" for="thirstTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="thirstFalse" name="thirst" value="0">
+					<label class="form-check-label" for="thirstFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Blurred vision:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="blurredVisionTrue" name="blurred_vision" value="1">
+					<label class="form-check-label" for="blurredVisionTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="blurredVisionFalse" name="blurred_vision"
+						value="0" checked>
+					<label class="form-check-label" for="blurredVisionFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Dry mouth:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="dryMouthTrue" name="dry_mouth" value="1" checked>
+					<label class="form-check-label" for="dryMouthTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="dryMouthFalse" name="dry_mouth" value="0">
+					<label class="form-check-label" for="dryMouthFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Smelling breath:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="smellingBreathTrue" name="smelling_breath"
+						value="1">
+					<label class="form-check-label" for="smellingBreathTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="smellingBreathFalse" name="smelling_breath"
+						value="0" checked>
+					<label class="form-check-label" for="smellingBreathFalse">False</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="col-auto">
+				<legend>Shortness of breath:</legend>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="shortnessOfBreathTrue" name="shortness_of_breath"
+						value="1">
+					<label class="form-check-label" for="shortnessOfBreathTrue">True</label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input type="radio" class="form-check-input" id="shortnessOfBreathFalse" name="shortness_of_breath"
+						value="0" checked>
+					<label class="form-check-label" for="shortnessOfBreathFalse">False</label>
+				</div>
+			</fieldset>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+		</form>
+
+		{% if results %}
+			<ul class="{% if is_sick %} bg-danger {% else %} bg-success {% endif %} text-white rounded mt-2">
+				{% for result in results %}
+					<li>{{ result }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+
+	<footer class="mt-4 text-white text-center">
+		Copyright &copy; 2022 - Built with <span class="text-danger">&hearts;</span> by Angelo 
+	</footer>
+
+</body>
+
+</html>

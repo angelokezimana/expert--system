@@ -1,0 +1,8 @@
+fieldset,
+legend {
+  all: revert;
+}
+
+.bg-blue {
+  background-color: #003459;
+}
